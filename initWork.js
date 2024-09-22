@@ -38,7 +38,7 @@ export default {
 						return new Response('Not found', { status: 404 });
 				}
 			} else {
-				return /* await */ "vlessOverWSHandler(request)";
+				return await "vlessOverWSHandler(request)";
 			}
 		} catch (err) {
 			/** @type {Error} */ let e = err;
