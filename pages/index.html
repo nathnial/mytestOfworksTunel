@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        index.html
+    </head>
+    <body>
+        <h1>h1</h1>
+        <div id="out"></div>
+        <div id="buf"></div>
+        <script>
+            const str = "abcdABCD"
+            const btoaStr = btoa(str)
+            document.getElementById("out").innerHTML = btoaStr
+            const u8 = Uint8Array.from(str, x => x.charCodeAt(0))
+            const av = new Uint16Array(u8.buffer);
+            console.log(av)
+            document.write(av)
+            console.log(u8.buffer)
+            document.write(u8.buffer)
+            // document.write(Uint8Array.from(str, x => x.charCodeAt(0)))
+            // document.write(btoaStr) // 在html 页面中最后显示
+            // for ( i=0; i<str.length; i++ ) {
+            //     console.log(str.charCodeAt(i))
+            // }
+            // console.log(atob("SGVsbG8gd29ybGQh"))
+            const buf = new Uint8Array([72, 101, 108, 108, 111])
+            const de = new TextDecoder('utf-8')
+            document.getElementById("buf").textContent = de.decode(buf)
+        </script>
+        <!-- <h3>btoaStr</h3> -->
+        <div>
+            <button onclick="init()">click on me</button>
+        </div>
+        <script src="js/test.js">
+        </script>
+        <h2>h2</h2>
+    </body>
+</html>
